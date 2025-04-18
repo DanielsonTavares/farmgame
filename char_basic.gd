@@ -1,4 +1,5 @@
 extends CharacterBody2D
+class_name CollectableTree
 
 var walkDirection: String
 var canAttack: bool = true
@@ -8,6 +9,7 @@ var attackAnimationName: String = ""
 @export var moveSpeed: float = 128.0
 @export var leftAttackName: String = ""
 @export var rightAttackName: String = ""
+@export var attackAreaCollision: CollisionShape2D
 
 @export_category("Objects")
 @export var animation = AnimatedSprite2D.new()
@@ -30,14 +32,17 @@ func move() -> void:
 func animate() -> void:	
 	if velocity.x > 0:
 		animation.flip_h = false
+		attackAreaCollision.position.x = 30
 		walkDirection = "right"
 		
 	if velocity.x < 0:
 		animation.flip_h = true
+		attackAreaCollision.position.x = -30
 		walkDirection = "left"
 	
 	if canAttack == false:
 		animation.play(attackAnimationName)
+		attackAreaCollision.disabled = false
 		return
 
 	if velocity.x:
@@ -65,7 +70,7 @@ func animate() -> void:
 	animation.play("idle")
 
 func attack() -> void:
-	if Input.is_action_just_pressed("leftAttack") and canAttack:
+	if Input.is_action_pressed("leftAttack") and canAttack:
 		canAttack = false
 		#attackAnimationName = leftAttackName
 		
@@ -78,7 +83,7 @@ func attack() -> void:
 		
 		set_physics_process(false)
 
-	if Input.is_action_just_pressed("rightAttack") and canAttack:
+	if Input.is_action_pressed("rightAttack") and canAttack:
 		pass
 		#canAttack = false
 		#attackAnimationName = rightAttackName
@@ -87,5 +92,13 @@ func attack() -> void:
 
 func _on_animated_sprite_2d_animation_finished() -> void:
 	canAttack = true
+	attackAreaCollision.disabled = true
 	set_physics_process(true)
+	
+
+
+func _on_area_2d_body_entered(body: Node2D) -> void:
+	if body is PhysicsTree:
+		print("debug ", body.health )
+		body.updateHealth([5,8])
 	

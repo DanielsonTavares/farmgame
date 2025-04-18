@@ -1,4 +1,4 @@
-[gd_scene load_steps=66 format=3 uid="uid://ds1fkivo4c07h"]
+[gd_scene load_steps=67 format=3 uid="uid://ds1fkivo4c07h"]
 
 [ext_resource type="PackedScene" uid="uid://bowu7w6bniwcm" path="res://char_basic.tscn" id="1_uk0nh"]
 [ext_resource type="Texture2D" uid="uid://bdjqv1gmiotmd" path="res://Assets/Entities/Characters/Body_A/Animations/Walk_Base/Walk_Down-Sheet.png" id="2_68p3u"]
@@ -437,14 +437,25 @@ animations = [{
 "speed": 5.0
 }]
 
-[node name="Bob" node_paths=PackedStringArray("animation") instance=ExtResource("1_uk0nh")]
+[sub_resource type="CircleShape2D" id="CircleShape2D_b5fkr"]
+radius = 20.0
+
+[node name="Bob" node_paths=PackedStringArray("attackAreaCollision", "animation") instance=ExtResource("1_uk0nh")]
 leftAttackName = "attack"
+attackAreaCollision = NodePath("AttackArea/CollisionArea")
 animation = NodePath("AnimatedSprite2D")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="." index="3"]
 sprite_frames = SubResource("SpriteFrames_tihm8")
 animation = &"attack"
 autoplay = "idle"
+frame = 7
+frame_progress = 1.0
 speed_scale = 2.0
+
+[node name="CollisionArea" type="CollisionShape2D" parent="AttackArea" index="0"]
+position = Vector2(30, 0)
+shape = SubResource("CircleShape2D_b5fkr")
+disabled = true
 
 [connection signal="animation_finished" from="AnimatedSprite2D" to="." method="_on_animated_sprite_2d_animation_finished"]
