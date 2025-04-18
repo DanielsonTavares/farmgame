@@ -24,11 +24,10 @@ func updateHealth(damageRange: Array) -> void:
 		return
 	
 	animation.play("hit")
-	print("ini hit")
+	
 
 
 func _on_animation_animation_finished(anim_name: StringName) -> void:
-	print("hit to idle")
 	if anim_name == "hit":
 		animation.play("idle")
 	

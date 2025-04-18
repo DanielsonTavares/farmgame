@@ -1,6 +1,6 @@
 [gd_scene load_steps=9 format=3 uid="uid://k1ev7eb36rdl"]
 
-[ext_resource type="Script" uid="uid://bn5sylvaf57me" path="res://colectable.gd" id="1_r1nkq"]
+[ext_resource type="Script" uid="uid://bn5sylvaf57me" path="res://TreeCollectable.gd" id="1_r1nkq"]
 [ext_resource type="Texture2D" uid="uid://b11uhsb04idoe" path="res://Assets/Environment/Props/Static/Trees/Model_01/Size_02.png" id="2_oey81"]
 
 [sub_resource type="Animation" id="Animation_oey81"]
@@ -128,6 +128,7 @@ size = Vector2(12, 14)
 
 [node name="Tree" type="StaticBody2D" node_paths=PackedStringArray("animation")]
 script = ExtResource("1_r1nkq")
+health = 40
 animation = NodePath("Animation")
 
 [node name="Animation" type="AnimationPlayer" parent="."]
