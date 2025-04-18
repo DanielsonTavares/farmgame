@@ -354,7 +354,7 @@ animations = [{
 }],
 "loop": true,
 "name": &"idle",
-"speed": 5.0
+"speed": 3.0
 }, {
 "frames": [{
 "duration": 1.0,
@@ -447,10 +447,8 @@ animation = NodePath("AnimatedSprite2D")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="." index="3"]
 sprite_frames = SubResource("SpriteFrames_tihm8")
-animation = &"attack"
+animation = &"idle"
 autoplay = "idle"
-frame = 7
-frame_progress = 1.0
 speed_scale = 2.0
 
 [node name="CollisionArea" type="CollisionShape2D" parent="AttackArea" index="0"]
