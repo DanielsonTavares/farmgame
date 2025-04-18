@@ -999,9 +999,11 @@ position = Vector2(657, 211)
 
 [node name="Tree2" parent="Decorators" instance=ExtResource("8_ubfei")]
 position = Vector2(559, 260)
+health = 20
 
 [node name="Tree3" parent="Decorators" instance=ExtResource("8_ubfei")]
 position = Vector2(438, 247)
+health = 15
 
 [node name="BornFire" parent="." instance=ExtResource("5_l60hq")]
 position = Vector2(530, 323)
