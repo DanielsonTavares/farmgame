@@ -1,0 +1,18 @@
+[gd_scene load_steps=3 format=3 uid="uid://4hu5oxc64m1i"]
+
+[ext_resource type="Texture2D" uid="uid://cyj0aqfh7p6tw" path="res://Assets/Environment/Props/Static/straw_bed.png" id="1_7mypt"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_esi3d"]
+size = Vector2(22, 32)
+
+[node name="StrawBed" type="Area2D"]
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(-1, 0)
+shape = SubResource("RectangleShape2D_esi3d")
+
+[node name="StrawBed" type="Sprite2D" parent="."]
+scale = Vector2(2, 2)
+texture = ExtResource("1_7mypt")
