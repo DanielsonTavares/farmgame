@@ -18,7 +18,6 @@ func updateHealth(damageRange: Array) -> void:
 		
 	health -= randi_range(damageRange[0], damageRange[1])
 
-
 	if health <= 0:
 		isDead = true
 		animation.play("kill")
@@ -35,3 +34,9 @@ func _on_animation_animation_finished(anim_name: StringName) -> void:
 	if anim_name == "kill":
 		queue_free()
 	
+func showLabel(amount: int) -> void :
+	$Label.text = "+" + str(amount)
+	$Label.visible = true
+	await get_tree().create_timer(0.5).timeout
+	$Label.visible = false
+	pass

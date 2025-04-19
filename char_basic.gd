@@ -108,5 +108,6 @@ func _on_area_2d_body_entered(body: Node2D) -> void:
 	if body is PhysicsTree:
 		print("debug ", body.health )
 		body.updateHealth([5,8])
-		iventory.add( [body.type,2] )
+		iventory.add( [body.type,1] )
+		body.showLabel(1)
 	

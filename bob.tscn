@@ -441,15 +441,16 @@ animations = [{
 radius = 20.0
 
 [node name="Bob" node_paths=PackedStringArray("attackAreaCollision", "animation") instance=ExtResource("1_uk0nh")]
-position = Vector2(0, -16)
+position = Vector2(0, -24)
 leftAttackName = "attack"
 attackAreaCollision = NodePath("AttackArea/CollisionArea")
 animation = NodePath("AnimatedSprite2D")
 
 [node name="CollisionShape2D" parent="." index="1"]
-position = Vector2(0.3125, 7.875)
+position = Vector2(0, -3)
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="." index="3"]
+position = Vector2(0, -16)
 sprite_frames = SubResource("SpriteFrames_tihm8")
 animation = &"idle"
 autoplay = "idle"
@@ -458,7 +459,7 @@ centered = false
 offset = Vector2(-32, -32)
 
 [node name="CollisionArea" type="CollisionShape2D" parent="AttackArea" index="0"]
-position = Vector2(30, 0)
+position = Vector2(30, -10)
 shape = SubResource("CircleShape2D_b5fkr")
 disabled = true
 
