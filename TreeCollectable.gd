@@ -6,6 +6,7 @@ var isDead: bool = false
 
 @export_category("Variables")
 @export var health: int = 20
+@export var type: String = "tronco"
 
 @export_category("Objects")
 @export var animation: AnimationPlayer
@@ -30,4 +31,7 @@ func updateHealth(damageRange: Array) -> void:
 func _on_animation_animation_finished(anim_name: StringName) -> void:
 	if anim_name == "hit":
 		animation.play("idle")
+	
+	if anim_name == "kill":
+		queue_free()
 	

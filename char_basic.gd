@@ -5,11 +5,14 @@ var walkDirection: String
 var canAttack: bool = true
 var attackAnimationName: String = ""
 
+var iventory = IventoryClass.new()
+
 @export_category("Variables")
 @export var moveSpeed: float = 128.0
 @export var leftAttackName: String = ""
 @export var rightAttackName: String = ""
 @export var attackAreaCollision: CollisionShape2D
+
 
 @export_category("Objects")
 @export var animation = AnimatedSprite2D.new()
@@ -19,6 +22,9 @@ func _physics_process(delta: float) -> void:
 	move()
 	attack()
 	animate()
+	
+	if Input.is_action_just_pressed("openIventory"):
+		iventory.list()
 	
 func move() -> void:
 	var direction: Vector2 = Input.get_vector(
@@ -102,4 +108,5 @@ func _on_area_2d_body_entered(body: Node2D) -> void:
 	if body is PhysicsTree:
 		print("debug ", body.health )
 		body.updateHealth([5,8])
+		iventory.add( [body.type,2] )
 	

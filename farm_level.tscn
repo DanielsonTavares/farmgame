@@ -996,10 +996,12 @@ tile_set = SubResource("TileSet_ubfei")
 
 [node name="Tree" parent="Decorators" instance=ExtResource("8_ubfei")]
 position = Vector2(657, 211)
+type = "carvalho"
 
 [node name="Tree2" parent="Decorators" instance=ExtResource("8_ubfei")]
 position = Vector2(559, 260)
 health = 20
+type = "abeto"
 
 [node name="Tree3" parent="Decorators" instance=ExtResource("8_ubfei")]
 position = Vector2(438, 247)
