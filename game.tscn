@@ -1,3 +1,7 @@
-[gd_scene format=3 uid="uid://ukljcj2rq761"]
+[gd_scene load_steps=2 format=3 uid="uid://ukljcj2rq761"]
+
+[ext_resource type="PackedScene" uid="uid://b8eimimssf25d" path="res://farm_level.tscn" id="1_80nbo"]
 
 [node name="Game" type="Node2D"]
+
+[node name="FarmLevel" parent="." instance=ExtResource("1_80nbo")]

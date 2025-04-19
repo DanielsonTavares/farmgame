@@ -6,6 +6,7 @@ var canAttack: bool = true
 var attackAnimationName: String = ""
 
 var iventory = IventoryClass.new()
+var equip: Dictionary = {}
 
 @export_category("Variables")
 @export var moveSpeed: float = 128.0
@@ -17,6 +18,12 @@ var iventory = IventoryClass.new()
 @export_category("Objects")
 @export var animation = AnimatedSprite2D.new()
 
+func _ready() -> void:
+	equip.rHand = {"type": "axe", "damage": [5,8] }
+	#equip.rHand = {"type": "hand", "damage": [1,1] }
+	equip.lHand = {"type": "hand", "damage": [1,1] }
+	
+	
 
 func _physics_process(delta: float) -> void:
 	move()
@@ -77,14 +84,22 @@ func animate() -> void:
 	animation.play("idle")
 
 func attack() -> void:
+	var attackType: Dictionary = {}
+	
+	if equip.rHand.type == "hand":
+		return
+	else:
+		attackType.up = "attackUp"
+		attackType.down = "attackDown"
+	
 	if Input.is_action_pressed("leftAttack") and canAttack:
 		canAttack = false
 		#attackAnimationName = leftAttackName
 		
 		if walkDirection == 'up':
-			attackAnimationName = 'attackUp'
+			attackAnimationName = attackType.up
 		elif walkDirection == 'down':
-			attackAnimationName = 'attackDown'
+			attackAnimationName = attackType.down
 		else:
 			attackAnimationName = leftAttackName
 		
@@ -106,8 +121,14 @@ func _on_animated_sprite_2d_animation_finished() -> void:
 
 func _on_area_2d_body_entered(body: Node2D) -> void:
 	if body is PhysicsTree:
-		print("debug ", body.health )
-		body.updateHealth([5,8])
-		iventory.add( [body.type,1] )
-		body.showLabel(1)
-	
+		print("HP arvore ", body.health )
+		print("dano ", equip.rHand.damage)
+		body.updateHealth(equip.rHand.damage)
+		
+		if equip.rHand.type == "hand":
+			if  [1,2,3,4,5,6,7].pick_random() == 2: #14% de chance de coletar 
+				iventory.add( [body.type,1] )
+				body.showLabel(1)
+		elif equip.rHand.type == "axe":
+			iventory.add( [body.type,1] )
+			body.showLabel(1)
