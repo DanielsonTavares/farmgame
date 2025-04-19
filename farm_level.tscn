@@ -1,4 +1,4 @@
-[gd_scene load_steps=19 format=4 uid="uid://b8eimimssf25d"]
+[gd_scene load_steps=21 format=4 uid="uid://b8eimimssf25d"]
 
 [ext_resource type="Texture2D" uid="uid://bxlhsaqvkvnnn" path="res://Assets/Environment/Tilesets/Water_tiles.png" id="1_qngix"]
 [ext_resource type="Texture2D" uid="uid://b77tvpqmgjhmm" path="res://Assets/Environment/Tilesets/Floors_Tiles.png" id="2_hxicw"]
@@ -8,6 +8,8 @@
 [ext_resource type="PackedScene" uid="uid://4hu5oxc64m1i" path="res://straw_bed.tscn" id="6_d22xr"]
 [ext_resource type="PackedScene" uid="uid://ds1fkivo4c07h" path="res://bob.tscn" id="7_7nwwt"]
 [ext_resource type="PackedScene" uid="uid://k1ev7eb36rdl" path="res://TreeCollectable.tscn" id="8_ubfei"]
+[ext_resource type="PackedScene" uid="uid://dkekhrxid1f1c" path="res://hud.tscn" id="9_ah57w"]
+[ext_resource type="PackedScene" uid="uid://cjnp8djhivola" path="res://Assets/Weapons/axeWood.tscn" id="10_pvbqw"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_akse7"]
 texture = ExtResource("1_qngix")
@@ -1012,5 +1014,10 @@ position = Vector2(530, 323)
 
 [node name="StrawBed" parent="." instance=ExtResource("6_d22xr")]
 position = Vector2(515, 283)
+
+[node name="AxeWood" parent="." instance=ExtResource("10_pvbqw")]
+position = Vector2(686, 263)
+
+[node name="Hud" parent="." instance=ExtResource("9_ah57w")]
 
 [editable path="BornFire"]

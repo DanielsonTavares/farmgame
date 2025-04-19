@@ -1,0 +1,23 @@
+[gd_scene load_steps=4 format=3 uid="uid://dkekhrxid1f1c"]
+
+[ext_resource type="Script" uid="uid://d2n1e0c3vuk17" path="res://hud.gd" id="1_8sq4i"]
+[ext_resource type="Texture2D" uid="uid://cr03ofacqgujs" path="res://Assets/Interface/Equip.png" id="1_37p78"]
+[ext_resource type="Texture2D" uid="uid://exec2xv08gyd" path="res://Assets/Weapons/Wood/Wood.png" id="2_64ctp"]
+
+[node name="Hud" type="CanvasLayer"]
+script = ExtResource("1_8sq4i")
+
+[node name="Equip" type="Sprite2D" parent="."]
+modulate = Color(1, 1, 1, 0.392157)
+texture_filter = 1
+position = Vector2(85, 528)
+scale = Vector2(1.42708, 1.42708)
+texture = ExtResource("1_37p78")
+
+[node name="Axe" type="Sprite2D" parent="."]
+visible = false
+position = Vector2(41, 529)
+rotation = -0.523599
+texture = ExtResource("2_64ctp")
+region_enabled = true
+region_rect = Rect2(48, 16, 16, 32)

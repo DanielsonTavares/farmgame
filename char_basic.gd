@@ -1,5 +1,5 @@
 extends CharacterBody2D
-class_name CollectableTree
+class_name CharBasic
 
 var walkDirection: String
 var canAttack: bool = true
@@ -7,6 +7,8 @@ var attackAnimationName: String = ""
 
 var iventory = IventoryClass.new()
 var equip: Dictionary = {}
+
+
 
 @export_category("Variables")
 @export var moveSpeed: float = 128.0
@@ -19,8 +21,8 @@ var equip: Dictionary = {}
 @export var animation = AnimatedSprite2D.new()
 
 func _ready() -> void:
-	equip.rHand = {"type": "axe", "damage": [5,8] }
-	#equip.rHand = {"type": "hand", "damage": [1,1] }
+	#equip.rHand = {"type": "axe", "damage": [5,8] }
+	equip.rHand = {"type": "hand", "damage": [1,1] }
 	equip.lHand = {"type": "hand", "damage": [1,1] }
 	
 	
@@ -111,6 +113,9 @@ func attack() -> void:
 		#attackAnimationName = rightAttackName
 		#set_physics_process(false)
 
+func equipRightHand() -> void:
+	get_node("/root/Game/FarmLevel/Hud/Axe").visible = true
+	
 
 func _on_animated_sprite_2d_animation_finished() -> void:
 	canAttack = true
