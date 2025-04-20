@@ -6,9 +6,9 @@ var canAttack: bool = true
 var attackAnimationName: String = ""
 
 var iventory = IventoryClass.new()
-var equip: Dictionary = {}
 
 
+@onready var HudInventory = get_node("/root/Game/FarmLevel/Hud/Control")
 
 @export_category("Variables")
 @export var moveSpeed: float = 128.0
@@ -22,9 +22,10 @@ var equip: Dictionary = {}
 
 func _ready() -> void:
 	#equip.rHand = {"type": "axe", "damage": [5,8] }
-	equip.rHand = {"type": "hand", "damage": [1,1] }
-	equip.lHand = {"type": "hand", "damage": [1,1] }
+	gameManager.equip.rHand = {"type": "hand", "damage": [1,1] }
+	gameManager.equip.lHand = {"type": "hand", "damage": [1,1] }
 	
+
 	
 
 func _physics_process(delta: float) -> void:
@@ -34,6 +35,14 @@ func _physics_process(delta: float) -> void:
 	
 	if Input.is_action_just_pressed("openIventory"):
 		iventory.list()
+
+		if gameManager.isInventoryOpen == false:
+			HudInventory.visible = true
+		else:
+			HudInventory.visible = false
+		
+		gameManager.isInventoryOpen = not gameManager.isInventoryOpen
+
 	
 func move() -> void:
 	var direction: Vector2 = Input.get_vector(
@@ -88,7 +97,7 @@ func animate() -> void:
 func attack() -> void:
 	var attackType: Dictionary = {}
 	
-	if equip.rHand.type == "hand":
+	if gameManager.equip.rHand.type == "hand":
 		return
 	else:
 		attackType.up = "attackUp"
@@ -113,8 +122,7 @@ func attack() -> void:
 		#attackAnimationName = rightAttackName
 		#set_physics_process(false)
 
-func equipRightHand() -> void:
-	get_node("/root/Game/FarmLevel/Hud/Axe").visible = true
+
 	
 
 func _on_animated_sprite_2d_animation_finished() -> void:
@@ -127,13 +135,13 @@ func _on_animated_sprite_2d_animation_finished() -> void:
 func _on_area_2d_body_entered(body: Node2D) -> void:
 	if body is PhysicsTree:
 		print("HP arvore ", body.health )
-		print("dano ", equip.rHand.damage)
-		body.updateHealth(equip.rHand.damage)
+		print("dano ", gameManager.equip.rHand.damage)
+		body.updateHealth(gameManager.equip.rHand.damage)
 		
-		if equip.rHand.type == "hand":
+		if gameManager.equip.rHand.type == "hand":
 			if  [1,2,3,4,5,6,7].pick_random() == 2: #14% de chance de coletar 
 				iventory.add( [body.type,1] )
 				body.showLabel(1)
-		elif equip.rHand.type == "axe":
+		elif gameManager.equip.rHand.type == "axe":
 			iventory.add( [body.type,1] )
 			body.showLabel(1)

@@ -1,23 +1,37 @@
-[gd_scene load_steps=4 format=3 uid="uid://dkekhrxid1f1c"]
+[gd_scene load_steps=5 format=3 uid="uid://dkekhrxid1f1c"]
 
 [ext_resource type="Script" uid="uid://d2n1e0c3vuk17" path="res://hud.gd" id="1_8sq4i"]
 [ext_resource type="Texture2D" uid="uid://cr03ofacqgujs" path="res://Assets/Interface/Equip.png" id="1_37p78"]
 [ext_resource type="Texture2D" uid="uid://exec2xv08gyd" path="res://Assets/Weapons/Wood/Wood.png" id="2_64ctp"]
+[ext_resource type="Texture2D" uid="uid://cgq1lmiye0mc2" path="res://Assets/Interface/hotBar.png" id="4_640wx"]
 
 [node name="Hud" type="CanvasLayer"]
 script = ExtResource("1_8sq4i")
 
-[node name="Equip" type="Sprite2D" parent="."]
-modulate = Color(1, 1, 1, 0.392157)
+[node name="Control" type="Control" parent="."]
+visible = false
+layout_mode = 3
+anchors_preset = 0
+offset_right = 40.0
+offset_bottom = 40.0
+
+[node name="Equip" type="Sprite2D" parent="Control"]
 texture_filter = 1
-position = Vector2(85, 528)
+position = Vector2(1075, 95)
 scale = Vector2(1.42708, 1.42708)
 texture = ExtResource("1_37p78")
 
-[node name="Axe" type="Sprite2D" parent="."]
+[node name="Axe" type="Sprite2D" parent="Control/Equip"]
 visible = false
-position = Vector2(41, 529)
+position = Vector2(-32.9344, 0.700775)
 rotation = -0.523599
+scale = Vector2(0.700732, 0.700732)
 texture = ExtResource("2_64ctp")
 region_enabled = true
 region_rect = Rect2(48, 16, 16, 32)
+
+[node name="HotBar" type="Sprite2D" parent="Control"]
+position = Vector2(1073, 196)
+texture = ExtResource("4_640wx")
+
+[connection signal="visibility_changed" from="." to="." method="_on_visibility_changed"]
