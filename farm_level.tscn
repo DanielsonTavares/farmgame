@@ -1,4 +1,4 @@
-[gd_scene load_steps=21 format=4 uid="uid://b8eimimssf25d"]
+[gd_scene load_steps=23 format=4 uid="uid://b8eimimssf25d"]
 
 [ext_resource type="Texture2D" uid="uid://bxlhsaqvkvnnn" path="res://Assets/Environment/Tilesets/Water_tiles.png" id="1_qngix"]
 [ext_resource type="Texture2D" uid="uid://b77tvpqmgjhmm" path="res://Assets/Environment/Tilesets/Floors_Tiles.png" id="2_hxicw"]
@@ -6,8 +6,10 @@
 [ext_resource type="Texture2D" uid="uid://bb8qtaox3w57n" path="res://Assets/Environment/Props/Static/Furniture.png" id="4_akse7"]
 [ext_resource type="PackedScene" uid="uid://cl3refqo71dvf" path="res://born_fire.tscn" id="5_l60hq"]
 [ext_resource type="PackedScene" uid="uid://4hu5oxc64m1i" path="res://straw_bed.tscn" id="6_d22xr"]
+[ext_resource type="PackedScene" uid="uid://m7rogomcqc8b" path="res://stone.tscn" id="7_4bjjx"]
 [ext_resource type="PackedScene" uid="uid://ds1fkivo4c07h" path="res://bob.tscn" id="7_7nwwt"]
 [ext_resource type="PackedScene" uid="uid://k1ev7eb36rdl" path="res://TreeCollectable.tscn" id="8_ubfei"]
+[ext_resource type="Texture2D" uid="uid://b7886v6cc5fu7" path="res://Assets/Environment/Props/Static/Rocks.png" id="8_yu00l"]
 [ext_resource type="PackedScene" uid="uid://dkekhrxid1f1c" path="res://hud.tscn" id="9_ah57w"]
 [ext_resource type="PackedScene" uid="uid://cjnp8djhivola" path="res://Assets/Weapons/axeWood.tscn" id="10_pvbqw"]
 
@@ -1009,6 +1011,59 @@ type = "abeto"
 position = Vector2(438, 247)
 health = 15
 
+[node name="Stone1" parent="Decorators" instance=ExtResource("7_4bjjx")]
+position = Vector2(443, 374)
+
+[node name="TextureItem" parent="Decorators/Stone1" index="1"]
+texture = ExtResource("8_yu00l")
+region_rect = Rect2(101, 183, 7, 4)
+
+[node name="Info" parent="Decorators/Stone1" index="2"]
+offset_right = 40.0
+horizontal_alignment = 0
+vertical_alignment = 0
+
+[node name="Stone2" parent="Decorators" instance=ExtResource("7_4bjjx")]
+position = Vector2(672, 344)
+description = "um outro fragmento de pedra"
+
+[node name="TextureItem" parent="Decorators/Stone2" index="1"]
+texture = ExtResource("8_yu00l")
+region_rect = Rect2(147, 136, 6, 3)
+
+[node name="Info" parent="Decorators/Stone2" index="2"]
+offset_right = 40.0
+horizontal_alignment = 0
+vertical_alignment = 0
+
+[node name="Stone3" parent="Decorators" instance=ExtResource("7_4bjjx")]
+position = Vector2(610, 237)
+itemName = "pedra"
+description = "uma pedra em seu caminho"
+
+[node name="TextureItem" parent="Decorators/Stone3" index="1"]
+texture = ExtResource("8_yu00l")
+region_rect = Rect2(36, 181, 8, 6)
+
+[node name="Info" parent="Decorators/Stone3" index="2"]
+offset_right = 40.0
+horizontal_alignment = 0
+vertical_alignment = 0
+
+[node name="Stone4" parent="Decorators" instance=ExtResource("7_4bjjx")]
+position = Vector2(443, 362)
+itemName = "pedra"
+description = "uma pedra em seu caminho"
+
+[node name="TextureItem" parent="Decorators/Stone4" index="1"]
+texture = ExtResource("8_yu00l")
+region_rect = Rect2(36, 181, 8, 6)
+
+[node name="Info" parent="Decorators/Stone4" index="2"]
+offset_right = 40.0
+horizontal_alignment = 0
+vertical_alignment = 0
+
 [node name="BornFire" parent="." instance=ExtResource("5_l60hq")]
 position = Vector2(530, 323)
 
@@ -1020,4 +1075,8 @@ position = Vector2(686, 263)
 
 [node name="Hud" parent="." instance=ExtResource("9_ah57w")]
 
+[editable path="Decorators/Stone1"]
+[editable path="Decorators/Stone2"]
+[editable path="Decorators/Stone3"]
+[editable path="Decorators/Stone4"]
 [editable path="BornFire"]

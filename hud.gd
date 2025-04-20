@@ -1,6 +1,6 @@
 extends CanvasLayer
 
-@onready var canvas = $CanvasLayer
+#@onready var canvas = $CanvasLayer
 #@onready var tela = canvas.get_node("/root/gameManager")
 
 

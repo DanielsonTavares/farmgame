@@ -1,4 +1,4 @@
-[gd_scene load_steps=67 format=3 uid="uid://ds1fkivo4c07h"]
+[gd_scene load_steps=68 format=3 uid="uid://ds1fkivo4c07h"]
 
 [ext_resource type="PackedScene" uid="uid://bowu7w6bniwcm" path="res://char_basic.tscn" id="1_uk0nh"]
 [ext_resource type="Texture2D" uid="uid://bdjqv1gmiotmd" path="res://Assets/Entities/Characters/Body_A/Animations/Walk_Base/Walk_Down-Sheet.png" id="2_68p3u"]
@@ -440,6 +440,9 @@ animations = [{
 [sub_resource type="CircleShape2D" id="CircleShape2D_b5fkr"]
 radius = 20.0
 
+[sub_resource type="CircleShape2D" id="CircleShape2D_0cnkt"]
+radius = 26.0192
+
 [node name="Bob" node_paths=PackedStringArray("attackAreaCollision", "animation") instance=ExtResource("1_uk0nh")]
 position = Vector2(0, -24)
 leftAttackName = "attack"
@@ -463,4 +466,9 @@ position = Vector2(30, -10)
 shape = SubResource("CircleShape2D_b5fkr")
 disabled = true
 
+[node name="Collision" type="CollisionShape2D" parent="CollectableArea" index="0"]
+position = Vector2(0, -14)
+shape = SubResource("CircleShape2D_0cnkt")
+
 [connection signal="animation_finished" from="AnimatedSprite2D" to="." method="_on_animated_sprite_2d_animation_finished"]
+[connection signal="body_entered" from="CollectableArea" to="." method="_on_collectable_area_body_entered"]

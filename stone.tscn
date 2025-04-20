@@ -1,0 +1,17 @@
+[gd_scene load_steps=2 format=3 uid="uid://m7rogomcqc8b"]
+
+[ext_resource type="PackedScene" uid="uid://cl7otipp24se3" path="res://collectable_item.tscn" id="1_6s6ed"]
+
+[node name="Stone" instance=ExtResource("1_6s6ed")]
+itemName = "lasca de pedra"
+type = "stone"
+description = "fragmento de pedra"
+CollectableData = {
+"description": "",
+"itemName": "Lasca de Pedra",
+"type": "pedra"
+}
+
+[node name="TextureItem" type="Sprite2D" parent="." index="1"]
+region_enabled = true
+region_rect = Rect2(101, 151, 7, 4)

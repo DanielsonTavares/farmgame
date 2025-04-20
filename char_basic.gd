@@ -42,7 +42,9 @@ func _physics_process(delta: float) -> void:
 			HudInventory.visible = false
 		
 		gameManager.isInventoryOpen = not gameManager.isInventoryOpen
+	
 
+		
 	
 func move() -> void:
 	var direction: Vector2 = Input.get_vector(
@@ -145,3 +147,12 @@ func _on_area_2d_body_entered(body: Node2D) -> void:
 		elif gameManager.equip.rHand.type == "axe":
 			iventory.add( [body.type,1] )
 			body.showLabel(1)
+
+
+
+
+
+
+func _on_collectable_area_area_entered(area: Area2D) -> void:
+	if area is CollectableItem:
+		area.colect()

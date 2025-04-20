@@ -4,7 +4,7 @@ class_name IventoryClass
 var content: Dictionary = {}
 
 func add(item: Array) -> void:
-	
+
 	if content.is_empty():
 		content.slot1 = item
 	elif content.slot1[0] != item[0]:
