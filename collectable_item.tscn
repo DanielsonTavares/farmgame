@@ -5,17 +5,23 @@
 [sub_resource type="CircleShape2D" id="CircleShape2D_kdpfu"]
 radius = 8.0
 
-[node name="CollectableItem" type="Area2D"]
+[node name="CollectableItem" type="Area2D" node_paths=PackedStringArray("textureItem", "info")]
 script = ExtResource("1_t0gva")
+textureItem = NodePath("Sprite2D")
+info = NodePath("Info")
 
 [node name="Collision" type="CollisionShape2D" parent="."]
 shape = SubResource("CircleShape2D_kdpfu")
 
 [node name="Info" type="Label" parent="."]
+texture_filter = 1
 offset_right = 1.0
-offset_bottom = 23.0
+offset_bottom = 14.0
+theme_override_font_sizes/font_size = 10
 horizontal_alignment = 1
 vertical_alignment = 1
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
 
 [connection signal="area_entered" from="." to="." method="_on_area_entered"]
 [connection signal="area_exited" from="." to="." method="_on_area_exited"]

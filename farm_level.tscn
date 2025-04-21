@@ -1019,20 +1019,24 @@ texture = ExtResource("8_yu00l")
 region_rect = Rect2(101, 183, 7, 4)
 
 [node name="Info" parent="Decorators/Stone1" index="2"]
+texture_filter = 0
 offset_right = 40.0
+offset_bottom = 23.0
 horizontal_alignment = 0
 vertical_alignment = 0
 
-[node name="Stone2" parent="Decorators" instance=ExtResource("7_4bjjx")]
+[node name="Stone2" parent="Decorators" node_paths=PackedStringArray("textureItem") instance=ExtResource("7_4bjjx")]
 position = Vector2(672, 344)
-description = "um outro fragmento de pedra"
+description = "fragmento"
+textureItem = NodePath("TextureItem")
 
 [node name="TextureItem" parent="Decorators/Stone2" index="1"]
 texture = ExtResource("8_yu00l")
 region_rect = Rect2(147, 136, 6, 3)
 
 [node name="Info" parent="Decorators/Stone2" index="2"]
-offset_right = 40.0
+texture_filter = 0
+offset_bottom = 23.0
 horizontal_alignment = 0
 vertical_alignment = 0
 
@@ -1046,7 +1050,8 @@ texture = ExtResource("8_yu00l")
 region_rect = Rect2(36, 181, 8, 6)
 
 [node name="Info" parent="Decorators/Stone3" index="2"]
-offset_right = 40.0
+texture_filter = 0
+offset_bottom = 23.0
 horizontal_alignment = 0
 vertical_alignment = 0
 
@@ -1060,7 +1065,8 @@ texture = ExtResource("8_yu00l")
 region_rect = Rect2(36, 181, 8, 6)
 
 [node name="Info" parent="Decorators/Stone4" index="2"]
-offset_right = 40.0
+texture_filter = 0
+offset_bottom = 23.0
 horizontal_alignment = 0
 vertical_alignment = 0
 

@@ -10,8 +10,9 @@ class_name CollectableItem
 
 @export_category("Objects")
 @export var textureItem: Sprite2D
+@export var info = Label
 
-@onready var info = $Info
+
 
 var canColect = false
 
@@ -20,10 +21,12 @@ var canColect = false
 func _ready() -> void:
 	mouse_entered.connect(_on_mouse_entered)
 	mouse_exited.connect(_on_mouse_exited)
-	pass # Replace with function body.
-
-
-# Called every frame. 'delta' is the elapsed time since the previous frame.
+	
+	#exibindo descricao do item quando o mouse passa em cima
+	#info = get_node("Info")
+	#info.visible = false
+	#info.text = description
+	
 func _process(delta: float) -> void:
 	if Input.is_action_just_pressed("action"):
 		colect()
@@ -33,12 +36,13 @@ func _process(delta: float) -> void:
 func _on_mouse_entered():
 	modulate = Color(1, 1, 1, 0.7)  # Deixa mais transparente
 	scale = Vector2(1.5,1.5)
-	info.text = description
+	info.visible = true
+	
 
 func _on_mouse_exited():
 	modulate = Color(1, 1, 1, 1)
 	scale = Vector2(1,1)
-	info.text = ""
+	info.visible = false
 
 func colect() -> void:
 	if canColect:
@@ -46,16 +50,15 @@ func colect() -> void:
 		queue_free()
 
 
-
-
-
-
-
 func _on_area_entered(area: Area2D) -> void:
 	if area.name == "CollectableArea":
+		modulate = Color(1, 1, 1, 0.7)  
+		scale = Vector2(2,2)
 		canColect = true
 
 
 func _on_area_exited(area: Area2D) -> void:
 	if area.name == "CollectableArea":
+		modulate = Color(1, 1, 1, 1)  
+		scale = Vector2(1,1)
 		canColect = false
