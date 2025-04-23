@@ -3,10 +3,11 @@
 [ext_resource type="Script" uid="uid://t8qs4yrvhekj" path="res://collectable_item.gd" id="1_t0gva"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_kdpfu"]
-radius = 8.0
+radius = 16.2207
 
 [node name="CollectableItem" type="Area2D" node_paths=PackedStringArray("textureItem", "info")]
 script = ExtResource("1_t0gva")
+group = "resource"
 textureItem = NodePath("Sprite2D")
 info = NodePath("Info")
 

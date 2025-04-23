@@ -22,8 +22,8 @@ var iventory = IventoryClass.new()
 
 func _ready() -> void:
 	#equip.rHand = {"type": "axe", "damage": [5,8] }
-	gameManager.equip.rHand = {"type": "hand", "damage": [1,1] }
-	gameManager.equip.lHand = {"type": "hand", "damage": [1,1] }
+	gameManager.equip.rHand = {"type": "hand", "damage": [1,1], "group": "Weapon" }
+	gameManager.equip.lHand = {"type": "hand", "damage": [1,1], "group": "Weapon"  }
 	
 
 	
@@ -135,18 +135,20 @@ func _on_animated_sprite_2d_animation_finished() -> void:
 
 
 func _on_area_2d_body_entered(body: Node2D) -> void:
+	var damageHit: int = 0
+	
 	if body is PhysicsTree:
 		print("HP arvore ", body.health )
 		print("dano ", gameManager.equip.rHand.damage)
-		body.updateHealth(gameManager.equip.rHand.damage)
+		damageHit = body.updateHealth(gameManager.equip.rHand.damage)
 		
 		if gameManager.equip.rHand.type == "hand":
 			if  [1,2,3,4,5,6,7].pick_random() == 2: #14% de chance de coletar 
 				iventory.add( [body.type,1] )
-				body.showLabel(1)
-		elif gameManager.equip.rHand.type == "axe":
+				body.showLabel(damageHit)
+		elif gameManager.equip.rHand.group == "Weapon":
 			iventory.add( [body.type,1] )
-			body.showLabel(1)
+			body.showLabel(damageHit)
 
 
 

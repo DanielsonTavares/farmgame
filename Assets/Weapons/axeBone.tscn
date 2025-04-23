@@ -1,0 +1,18 @@
+[gd_scene load_steps=3 format=3 uid="uid://cv5y61761okdd"]
+
+[ext_resource type="PackedScene" uid="uid://cl7otipp24se3" path="res://collectable_item.tscn" id="1_8hn0r"]
+[ext_resource type="Texture2D" uid="uid://dxpqpq4beuhuw" path="res://Assets/Weapons/Bone/Bone.png" id="2_el5wk"]
+
+[node name="AxeBone" instance=ExtResource("1_8hn0r")]
+type = "AxeBone"
+group = "Weapon"
+
+[node name="Collision" parent="." index="0"]
+scale = Vector2(0.375, 0.375)
+
+[node name="Sprite2D" parent="." index="2"]
+position = Vector2(-3.57628e-07, 0)
+scale = Vector2(0.375, 0.375)
+texture = ExtResource("2_el5wk")
+region_enabled = true
+region_rect = Rect2(48, 17, 16, 30)

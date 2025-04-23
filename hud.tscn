@@ -2,7 +2,7 @@
 
 [ext_resource type="Script" uid="uid://d2n1e0c3vuk17" path="res://hud.gd" id="1_8sq4i"]
 [ext_resource type="Texture2D" uid="uid://cr03ofacqgujs" path="res://Assets/Interface/Equip.png" id="1_37p78"]
-[ext_resource type="Texture2D" uid="uid://exec2xv08gyd" path="res://Assets/Weapons/Wood/Wood.png" id="2_64ctp"]
+[ext_resource type="Texture2D" uid="uid://0vxat2p84fc6" path="res://Assets/Weapons/weaponsIcons.png" id="3_640wx"]
 [ext_resource type="Texture2D" uid="uid://cgq1lmiye0mc2" path="res://Assets/Interface/hotBar.png" id="4_640wx"]
 
 [node name="Hud" type="CanvasLayer"]
@@ -26,9 +26,9 @@ visible = false
 position = Vector2(-32.9344, 0.700775)
 rotation = -0.523599
 scale = Vector2(0.700732, 0.700732)
-texture = ExtResource("2_64ctp")
+texture = ExtResource("3_640wx")
 region_enabled = true
-region_rect = Rect2(48, 16, 16, 32)
+region_rect = Rect2(0, 0, 16, 32)
 
 [node name="HotBar" type="Sprite2D" parent="Control"]
 position = Vector2(1073, 196)

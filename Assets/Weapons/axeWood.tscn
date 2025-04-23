@@ -6,8 +6,9 @@
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_x5b4i"]
 size = Vector2(10, 19)
 
-[node name="AxeWood" type="Area2D"]
+[node name="AxeWood_old" type="Area2D"]
 script = ExtResource("1_x5b4i")
+metadata/_custom_type_script = "uid://t8qs4yrvhekj"
 
 [node name="Collision" type="CollisionShape2D" parent="."]
 position = Vector2(0, 0.5)

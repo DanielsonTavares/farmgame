@@ -6,11 +6,6 @@
 itemName = "lasca de pedra"
 type = "stone"
 description = "fragmento de pedra"
-CollectableData = {
-"description": "",
-"itemName": "Lasca de Pedra",
-"type": "pedra"
-}
 
 [node name="TextureItem" type="Sprite2D" parent="." index="1"]
 region_enabled = true

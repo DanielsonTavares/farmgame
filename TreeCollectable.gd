@@ -12,18 +12,22 @@ var isDead: bool = false
 @export var animation: AnimationPlayer
 
 
-func updateHealth(damageRange: Array) -> void:
+func updateHealth(damageRange: Array) -> int:
+	var damage: int = 0
+	
 	if isDead:
-		return
-		
-	health -= randi_range(damageRange[0], damageRange[1])
+		return -1
+	
+	damage = randi_range(damageRange[0], damageRange[1])
+	health -= damage
 
 	if health <= 0:
 		isDead = true
 		animation.play("kill")
-		return
+		return damage
 	
 	animation.play("hit")
+	return damage
 	
 
 
@@ -35,8 +39,8 @@ func _on_animation_animation_finished(anim_name: StringName) -> void:
 		queue_free()
 	
 func showLabel(amount: int) -> void :
-	$Label.text = "+" + str(amount)
-	$Label.visible = true
-	await get_tree().create_timer(0.5).timeout
-	$Label.visible = false
-	pass
+	if amount > 0:
+		$Label.text = "+" + str(amount)
+		$Label.visible = true
+		await get_tree().create_timer(0.5).timeout
+		$Label.visible = false
