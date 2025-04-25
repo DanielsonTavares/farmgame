@@ -1,0 +1,10 @@
+[gd_scene load_steps=2 format=3 uid="uid://bkmby5lwp2ukl"]
+
+[ext_resource type="PackedScene" uid="uid://cl7otipp24se3" path="res://collectable_item.tscn" id="1_vk5uf"]
+
+[node name="HammerWood" instance=ExtResource("1_vk5uf")]
+scale = Vector2(0.375, 0.375)
+spriteRect = Rect2(16, 0, 16, 32)
+
+[node name="Sprite2D" parent="." index="2"]
+region_rect = Rect2(16, 0, 16, 32)

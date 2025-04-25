@@ -5,7 +5,10 @@ class_name CollectableItem
 @export var itemName: String = ""
 @export var type: String = ""
 @export var group: String = ""
+@export var minDamage: int = 1
+@export var maxDamage: int = 3
 @export var description: String = ""
+@export var spriteRect: Rect2 = Rect2(0.0, 0.0, 0.0, 0.0)
 
 
 
@@ -38,8 +41,15 @@ func colect() -> void:
 		print("coletavel")
 		
 		if group == "Weapon":
-			gameManager.equip.rHand = {"type": "AxeBone", "damage": [9,12], "group": "Weapon"  }
-			get_node("/root/Game/FarmLevel/Hud").update()
+			gameManager.equip.rHand = {
+				"type": type, 
+				"damage": [minDamage, maxDamage], 
+				"group": group,
+				"texture": {
+					"rect": textureItem.region_rect
+				}
+			}
+			get_node("/root/Game/FarmLevel/Hud").update(gameManager.equip.rHand.texture)
 		
 		queue_free()
 

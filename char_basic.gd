@@ -26,8 +26,6 @@ func _ready() -> void:
 	gameManager.equip.lHand = {"type": "hand", "damage": [1,1], "group": "Weapon"  }
 	
 
-	
-
 func _physics_process(delta: float) -> void:
 	move()
 	attack()
@@ -43,8 +41,6 @@ func _physics_process(delta: float) -> void:
 		
 		gameManager.isInventoryOpen = not gameManager.isInventoryOpen
 	
-
-		
 	
 func move() -> void:
 	var direction: Vector2 = Input.get_vector(
@@ -125,15 +121,11 @@ func attack() -> void:
 		#set_physics_process(false)
 
 
-	
-
 func _on_animated_sprite_2d_animation_finished() -> void:
 	canAttack = true
 	attackAreaCollision.disabled = true
 	set_physics_process(true)
 	
-
-
 func _on_area_2d_body_entered(body: Node2D) -> void:
 	var damageHit: int = 0
 	
@@ -149,11 +141,6 @@ func _on_area_2d_body_entered(body: Node2D) -> void:
 		elif gameManager.equip.rHand.group == "Weapon":
 			iventory.add( [body.type,1] )
 			body.showLabel(damageHit)
-
-
-
-
-
 
 func _on_collectable_area_area_entered(area: Area2D) -> void:
 	if area is CollectableItem:

@@ -21,7 +21,7 @@ position = Vector2(1075, 95)
 scale = Vector2(1.42708, 1.42708)
 texture = ExtResource("1_37p78")
 
-[node name="Axe" type="Sprite2D" parent="Control/Equip"]
+[node name="RightHandIcon" type="Sprite2D" parent="Control/Equip"]
 visible = false
 position = Vector2(-32.9344, 0.700775)
 rotation = -0.523599
