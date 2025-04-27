@@ -1002,16 +1002,20 @@ tile_set = SubResource("TileSet_ubfei")
 
 [node name="Tree" parent="Decorators" instance=ExtResource("8_ubfei")]
 position = Vector2(657, 211)
+nameItem = "carvalho"
 type = "carvalho"
 
 [node name="Tree2" parent="Decorators" instance=ExtResource("8_ubfei")]
 position = Vector2(559, 260)
+nameItem = "abeto"
 health = 20
 type = "abeto"
 
 [node name="Tree3" parent="Decorators" instance=ExtResource("8_ubfei")]
 position = Vector2(438, 247)
+nameItem = "betula"
 health = 15
+type = "betula"
 
 [node name="Stone1" parent="Decorators" instance=ExtResource("7_4bjjx")]
 position = Vector2(443, 374)
@@ -1123,6 +1127,7 @@ group = "Weapon"
 [node name="Sprite2D" parent="AxeWood" index="2"]
 scale = Vector2(0.375, 0.375)
 
+[editable path="Decorators/Bob"]
 [editable path="Decorators/Stone1"]
 [editable path="Decorators/Stone2"]
 [editable path="Decorators/Stone3"]

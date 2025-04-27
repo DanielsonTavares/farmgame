@@ -2,17 +2,31 @@ extends Node2D
 class_name IventoryClass
 
 var content: Dictionary = {}
+var size: int = 2
 
-func add(item: Array) -> void:
-
-	if content.is_empty():
-		content.slot1 = item
-	elif content.slot1[0] != item[0]:
-		print("iventario cheio cheio")
-	else:
-		content.slot1 = [item[0], item[1]+content.slot1[1]]
-
+func add(item: Dictionary) -> void:
+	for i in size:
+		if content.has(i):
+			if content[i].item.name == item.name:
+				content[i].amount += 1
+				print("slot ", i, " ja tem ",content[i].amount, content[i].item.name)
+				return
+			else:
+				continue
+			
+		print("slot ", i, " disponivel")
+		content[i] = {"item" :item, "amount": 1}
+		return
 	
+	if isfull():
+		print("INVENTARIO CHEIO")
+		return
+	
+func isfull() -> bool:
+	if count() == size:
+		return true
+	else:
+		return false
 
 func count() -> int:
 	return content.size()

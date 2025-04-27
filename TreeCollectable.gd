@@ -1,15 +1,23 @@
 extends StaticBody2D
 class_name PhysicsTree
 
-var tipo: String = "carvalho"
+
 var isDead: bool = false
 
 @export_category("Variables")
+@export var nameItem: String = ""
 @export var health: int = 20
-@export var type: String = "tronco"
+@export var type: String = ""
+@export var itemDrop: Dictionary = {}
 
 @export_category("Objects")
 @export var animation: AnimationPlayer
+
+func _ready() -> void:
+	itemDrop = {
+		"name": nameItem,
+		"type": type
+	}
 
 
 func updateHealth(damageRange: Array) -> int:

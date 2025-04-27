@@ -33,6 +33,7 @@ func _physics_process(delta: float) -> void:
 	
 	if Input.is_action_just_pressed("openIventory"):
 		iventory.list()
+		
 
 		if gameManager.isInventoryOpen == false:
 			HudInventory.visible = true
@@ -136,10 +137,10 @@ func _on_area_2d_body_entered(body: Node2D) -> void:
 		
 		if gameManager.equip.rHand.type == "hand":
 			if  [1,2,3,4,5,6,7].pick_random() == 2: #14% de chance de coletar 
-				iventory.add( [body.type,1] )
+				iventory.add( body.itemDrop )
 				body.showLabel(damageHit)
 		elif gameManager.equip.rHand.group == "Weapon":
-			iventory.add( [body.type,1] )
+			iventory.add( body.itemDrop )
 			body.showLabel(damageHit)
 
 func _on_collectable_area_area_entered(area: Area2D) -> void:

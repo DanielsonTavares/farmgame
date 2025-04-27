@@ -66,13 +66,14 @@ func _on_mouse_exited():
 
 func _on_area_entered(area: Area2D) -> void:
 	if area.name == "CollectableArea":
+		canColect = true
 		modulate = Color(1, 1, 1, 0.7)  
 		scale = Vector2(2,2)
-		canColect = true
+
 
 
 func _on_area_exited(area: Area2D) -> void:
 	if area.name == "CollectableArea":
+		canColect = false
 		modulate = Color(1, 1, 1, 1)  
 		scale = Vector2(1,1)
-		canColect = false
