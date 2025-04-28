@@ -13,7 +13,14 @@ var isDead: bool = false
 @export_category("Objects")
 @export var animation: AnimationPlayer
 
+var itemAux: ItemClass
+
 func _ready() -> void:
+	
+	itemAux = ItemClass.new(nameItem, type, 1)
+	
+	
+	
 	itemDrop = {
 		"name": nameItem,
 		"type": type

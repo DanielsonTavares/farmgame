@@ -32,11 +32,9 @@ func _physics_process(delta: float) -> void:
 	animate()
 	
 	if Input.is_action_just_pressed("openIventory"):
-		iventory.list()
-		
-
 		if gameManager.isInventoryOpen == false:
 			HudInventory.visible = true
+			iventory.list()
 		else:
 			HudInventory.visible = false
 		
@@ -140,7 +138,8 @@ func _on_area_2d_body_entered(body: Node2D) -> void:
 				iventory.add( body.itemDrop )
 				body.showLabel(damageHit)
 		elif gameManager.equip.rHand.group == "Weapon":
-			iventory.add( body.itemDrop )
+			#iventory.add( body.itemDrop )
+			iventory.add(body.itemAux)
 			body.showLabel(damageHit)
 
 func _on_collectable_area_area_entered(area: Area2D) -> void:

@@ -4,12 +4,12 @@ class_name IventoryClass
 var content: Dictionary = {}
 var size: int = 2
 
-func add(item: Dictionary) -> void:
+func add(item: ItemClass) -> void:
 	for i in size:
 		if content.has(i):
-			if content[i].item.name == item.name:
+			if content[i].item.ItemName == item.ItemName:
 				content[i].amount += 1
-				print("slot ", i, " ja tem ",content[i].amount, content[i].item.name)
+				print("slot ", i, " ja tem ",content[i].amount, content[i].item.ItemName)
 				return
 			else:
 				continue
@@ -32,4 +32,5 @@ func count() -> int:
 	return content.size()
 
 func list() -> void:
-	print("Conteudo iventario ", content)
+	for slot in content:
+		print("Nome: ", content[slot].item.ItemName , " Qtd: ", content[slot].amount)
