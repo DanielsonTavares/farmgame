@@ -25,20 +25,13 @@ func _ready() -> void:
 	gameManager.equip.rHand = {"type": "hand", "damage": [1,1], "group": "Weapon" }
 	gameManager.equip.lHand = {"type": "hand", "damage": [1,1], "group": "Weapon"  }
 	
-
+	
 func _physics_process(delta: float) -> void:
 	move()
 	attack()
 	animate()
 	
-	if Input.is_action_just_pressed("openIventory"):
-		if gameManager.isInventoryOpen == false:
-			HudInventory.visible = true
-			iventory.list()
-		else:
-			HudInventory.visible = false
-		
-		gameManager.isInventoryOpen = not gameManager.isInventoryOpen
+	openIventory()
 	
 	
 func move() -> void:
@@ -119,6 +112,16 @@ func attack() -> void:
 		#attackAnimationName = rightAttackName
 		#set_physics_process(false)
 
+func openIventory()-> void:
+	if Input.is_action_just_pressed("openIventory"):
+		if gameManager.isInventoryOpen == false:
+			HudInventory.visible = true
+			iventory.list()
+			#instance.visible = true
+		else:
+			HudInventory.visible = false
+		
+		gameManager.isInventoryOpen = not gameManager.isInventoryOpen
 
 func _on_animated_sprite_2d_animation_finished() -> void:
 	canAttack = true
