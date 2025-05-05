@@ -21,7 +21,6 @@ gameManager="*res://GameManager.gd"
 
 [display]
 
-window/size/resizable=false
 window/size/always_on_top=true
 window/stretch/mode="canvas_items"
 

@@ -1,0 +1,34 @@
+[gd_scene load_steps=4 format=3 uid="uid://sfhtpr1yn324"]
+
+[ext_resource type="Script" uid="uid://d02b1rac26q2j" path="res://UI/inventory_ui.gd" id="1_xufhh"]
+[ext_resource type="Texture2D" uid="uid://gksk3vcasv4l" path="res://UI/tronco1.png" id="2_7cfyf"]
+[ext_resource type="Texture2D" uid="uid://cewfv35bfr1x8" path="res://UI/tronco2.png" id="3_72myj"]
+
+[node name="InventorUI" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_xufhh")
+icones_disponiveis = Array[Texture2D]([ExtResource("3_72myj"), ExtResource("2_7cfyf"), ExtResource("3_72myj"), ExtResource("2_7cfyf")])
+
+[node name="Panel" type="Panel" parent="."]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -80.0
+offset_top = -80.0
+offset_right = 80.0
+offset_bottom = 80.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="SlotGrid" type="GridContainer" parent="Panel"]
+layout_mode = 0
+offset_right = 40.0
+offset_bottom = 40.0

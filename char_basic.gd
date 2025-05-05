@@ -9,6 +9,7 @@ var iventory = IventoryClass.new()
 
 
 @onready var HudInventory = get_node("/root/Game/FarmLevel/Hud/Control")
+@onready var inventor_ui: Control = $"../../Hud/InventorUI"
 
 @export_category("Variables")
 @export var moveSpeed: float = 128.0
@@ -116,10 +117,12 @@ func openIventory()-> void:
 	if Input.is_action_just_pressed("openIventory"):
 		if gameManager.isInventoryOpen == false:
 			HudInventory.visible = true
+			inventor_ui.visible = true
 			iventory.list()
 			#instance.visible = true
 		else:
 			HudInventory.visible = false
+			inventor_ui.visible = false
 		
 		gameManager.isInventoryOpen = not gameManager.isInventoryOpen
 

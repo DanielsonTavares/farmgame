@@ -1,0 +1,10 @@
+[gd_scene load_steps=2 format=3 uid="uid://ceofhokwkqv5t"]
+
+[ext_resource type="Script" uid="uid://drg0rwt0l1awl" path="res://UI/Slot.gd" id="1_ixitk"]
+
+[node name="TextureRect" type="TextureRect"]
+custom_minimum_size = Vector2(32, 32)
+offset_right = 40.0
+offset_bottom = 40.0
+mouse_default_cursor_shape = 2
+script = ExtResource("1_ixitk")

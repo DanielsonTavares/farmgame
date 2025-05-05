@@ -1,4 +1,4 @@
-[gd_scene load_steps=25 format=4 uid="uid://b8eimimssf25d"]
+[gd_scene load_steps=28 format=4 uid="uid://b8eimimssf25d"]
 
 [ext_resource type="Texture2D" uid="uid://bxlhsaqvkvnnn" path="res://Assets/Environment/Tilesets/Water_tiles.png" id="1_qngix"]
 [ext_resource type="Texture2D" uid="uid://b77tvpqmgjhmm" path="res://Assets/Environment/Tilesets/Floors_Tiles.png" id="2_hxicw"]
@@ -12,7 +12,10 @@
 [ext_resource type="Texture2D" uid="uid://b7886v6cc5fu7" path="res://Assets/Environment/Props/Static/Rocks.png" id="8_yu00l"]
 [ext_resource type="PackedScene" uid="uid://dkekhrxid1f1c" path="res://hud.tscn" id="9_ah57w"]
 [ext_resource type="PackedScene" uid="uid://de18bs242pqn3" path="res://Assets/Weapons/axeWood.tscn" id="10_pvbqw"]
+[ext_resource type="PackedScene" uid="uid://sfhtpr1yn324" path="res://UI/InventoryUI.tscn" id="12_n0vqf"]
+[ext_resource type="Texture2D" uid="uid://cewfv35bfr1x8" path="res://UI/tronco2.png" id="13_2adjg"]
 [ext_resource type="PackedScene" uid="uid://cv5y61761okdd" path="res://Assets/Weapons/axeBone.tscn" id="13_tl7lc"]
+[ext_resource type="Texture2D" uid="uid://gksk3vcasv4l" path="res://UI/tronco1.png" id="14_1y81q"]
 [ext_resource type="PackedScene" uid="uid://bkmby5lwp2ukl" path="res://Assets/Weapons/hammerWood.tscn" id="14_mxgtm"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_akse7"]
@@ -1103,6 +1106,19 @@ position = Vector2(530, 323)
 position = Vector2(515, 283)
 
 [node name="Hud" parent="." instance=ExtResource("9_ah57w")]
+
+[node name="InventorUI" parent="Hud" instance=ExtResource("12_n0vqf")]
+visible = false
+anchors_preset = 6
+anchor_left = 1.0
+anchor_top = 0.5
+anchor_bottom = 0.5
+offset_left = -84.0
+offset_top = 2.0
+offset_right = -84.0
+offset_bottom = 2.0
+grow_horizontal = 0
+icones_disponiveis = Array[Texture2D]([ExtResource("13_2adjg"), ExtResource("14_1y81q"), ExtResource("13_2adjg"), ExtResource("14_1y81q"), null, null])
 
 [node name="AxeBone" parent="." instance=ExtResource("13_tl7lc")]
 position = Vector2(716, 307)
