@@ -1,6 +1,6 @@
 [gd_scene load_steps=4 format=3 uid="uid://cl7otipp24se3"]
 
-[ext_resource type="Script" uid="uid://t8qs4yrvhekj" path="res://collectable_item.gd" id="1_t0gva"]
+[ext_resource type="Script" uid="uid://t8qs4yrvhekj" path="res://Class/collectable_item.gd" id="1_t0gva"]
 [ext_resource type="Texture2D" uid="uid://0vxat2p84fc6" path="res://Assets/Weapons/weaponsIcons.png" id="2_eqog0"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_kdpfu"]

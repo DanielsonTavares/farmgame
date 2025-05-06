@@ -1,22 +1,17 @@
-[gd_scene load_steps=28 format=4 uid="uid://b8eimimssf25d"]
+[gd_scene load_steps=23 format=4 uid="uid://b8eimimssf25d"]
 
 [ext_resource type="Texture2D" uid="uid://bxlhsaqvkvnnn" path="res://Assets/Environment/Tilesets/Water_tiles.png" id="1_qngix"]
 [ext_resource type="Texture2D" uid="uid://b77tvpqmgjhmm" path="res://Assets/Environment/Tilesets/Floors_Tiles.png" id="2_hxicw"]
 [ext_resource type="Texture2D" uid="uid://dbagwb2tcxouy" path="res://Assets/Environment/Props/Static/Farm.png" id="3_hxicw"]
 [ext_resource type="Texture2D" uid="uid://bb8qtaox3w57n" path="res://Assets/Environment/Props/Static/Furniture.png" id="4_akse7"]
-[ext_resource type="PackedScene" uid="uid://cl3refqo71dvf" path="res://born_fire.tscn" id="5_l60hq"]
-[ext_resource type="PackedScene" uid="uid://4hu5oxc64m1i" path="res://straw_bed.tscn" id="6_d22xr"]
 [ext_resource type="PackedScene" uid="uid://m7rogomcqc8b" path="res://stone.tscn" id="7_4bjjx"]
 [ext_resource type="PackedScene" uid="uid://ds1fkivo4c07h" path="res://bob.tscn" id="7_7nwwt"]
 [ext_resource type="PackedScene" uid="uid://k1ev7eb36rdl" path="res://TreeCollectable.tscn" id="8_ubfei"]
 [ext_resource type="Texture2D" uid="uid://b7886v6cc5fu7" path="res://Assets/Environment/Props/Static/Rocks.png" id="8_yu00l"]
 [ext_resource type="PackedScene" uid="uid://dkekhrxid1f1c" path="res://hud.tscn" id="9_ah57w"]
-[ext_resource type="PackedScene" uid="uid://de18bs242pqn3" path="res://Assets/Weapons/axeWood.tscn" id="10_pvbqw"]
 [ext_resource type="PackedScene" uid="uid://sfhtpr1yn324" path="res://UI/InventoryUI.tscn" id="12_n0vqf"]
 [ext_resource type="Texture2D" uid="uid://cewfv35bfr1x8" path="res://UI/tronco2.png" id="13_2adjg"]
-[ext_resource type="PackedScene" uid="uid://cv5y61761okdd" path="res://Assets/Weapons/axeBone.tscn" id="13_tl7lc"]
 [ext_resource type="Texture2D" uid="uid://gksk3vcasv4l" path="res://UI/tronco1.png" id="14_1y81q"]
-[ext_resource type="PackedScene" uid="uid://bkmby5lwp2ukl" path="res://Assets/Weapons/hammerWood.tscn" id="14_mxgtm"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_akse7"]
 texture = ExtResource("1_qngix")
@@ -1099,12 +1094,6 @@ vertical_alignment = 0
 texture = null
 region_enabled = false
 
-[node name="BornFire" parent="." instance=ExtResource("5_l60hq")]
-position = Vector2(530, 323)
-
-[node name="StrawBed" parent="." instance=ExtResource("6_d22xr")]
-position = Vector2(515, 283)
-
 [node name="Hud" parent="." instance=ExtResource("9_ah57w")]
 
 [node name="InventorUI" parent="Hud" instance=ExtResource("12_n0vqf")]
@@ -1120,35 +1109,8 @@ offset_bottom = 2.0
 grow_horizontal = 0
 icones_disponiveis = Array[Texture2D]([ExtResource("13_2adjg"), ExtResource("14_1y81q"), ExtResource("13_2adjg"), ExtResource("14_1y81q"), null, null])
 
-[node name="AxeBone" parent="." instance=ExtResource("13_tl7lc")]
-position = Vector2(716, 307)
-
-[node name="HammerWood" parent="." instance=ExtResource("14_mxgtm")]
-position = Vector2(731, 238)
-scale = Vector2(1, 1)
-type = "Hammer"
-group = "Weapon"
-minDamage = 9
-maxDamage = 10
-description = "Martelo"
-
-[node name="Sprite2D" parent="HammerWood" index="2"]
-scale = Vector2(0.375, 0.375)
-
-[node name="AxeWood" parent="." instance=ExtResource("10_pvbqw")]
-position = Vector2(680, 255)
-type = "Axe"
-group = "Weapon"
-
-[node name="Sprite2D" parent="AxeWood" index="2"]
-scale = Vector2(0.375, 0.375)
-
 [editable path="Decorators/Bob"]
 [editable path="Decorators/Stone1"]
 [editable path="Decorators/Stone2"]
 [editable path="Decorators/Stone3"]
 [editable path="Decorators/Stone4"]
-[editable path="BornFire"]
-[editable path="AxeBone"]
-[editable path="HammerWood"]
-[editable path="AxeWood"]
